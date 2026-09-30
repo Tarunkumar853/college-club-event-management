@@ -13,16 +13,16 @@ export const AdminSidebar = ({ onOpenAddModal }) => {
   ];
 
   return (
-    <aside className="w-full lg:w-64 bg-slate-900 text-white flex flex-col shrink-0 min-h-screen border-r border-slate-800">
+    <aside className="w-full lg:w-64 bg-slate-900/90 border-r border-slate-800 flex flex-col shrink-0 min-h-screen">
       {/* Sidebar Header */}
-      <div className="p-6 border-b border-slate-800 flex items-center justify-between">
+      <div className="p-6 border-b border-slate-800/80 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-purple-600/30">
             <Shield className="w-5 h-5" />
           </div>
           <div>
             <span className="font-extrabold text-base text-white block leading-tight">Admin Portal</span>
-            <span className="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Control Panel</span>
+            <span className="text-[10px] text-purple-400 font-semibold uppercase tracking-wider">Control Panel</span>
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ export const AdminSidebar = ({ onOpenAddModal }) => {
       <div className="p-4">
         <button
           onClick={onOpenAddModal}
-          className="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+          className="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-indigo-600/25 transition-all hover:scale-[1.02]"
         >
           <PlusCircle className="w-4 h-4" />
           <span>Create New Event</span>
@@ -52,10 +52,10 @@ export const AdminSidebar = ({ onOpenAddModal }) => {
               to={item.path}
               end={item.exact}
               className={({ isActive }) =>
-                `flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-bold transition-all ${
+                `flex items-center justify-between px-3.5 py-3 rounded-xl text-xs font-semibold transition-all ${
                   isActive
-                    ? 'bg-blue-600 text-white shadow-sm'
-                    : 'text-slate-400 hover:bg-slate-800 hover:text-white'
+                    ? 'bg-indigo-600/20 text-indigo-300 border border-indigo-500/40 shadow-sm'
+                    : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200'
                 }`
               }
             >
@@ -74,7 +74,7 @@ export const AdminSidebar = ({ onOpenAddModal }) => {
       </nav>
 
       {/* Demo Reset Data & Return to Site */}
-      <div className="p-4 border-t border-slate-800 space-y-2">
+      <div className="p-4 border-t border-slate-800/80 space-y-2">
         <button
           onClick={resetToDefaultData}
           className="w-full py-2 px-3 rounded-xl bg-slate-950/60 hover:bg-slate-800 text-slate-400 hover:text-amber-300 border border-slate-800 text-xs font-medium flex items-center justify-center gap-2 transition-colors"
@@ -85,7 +85,7 @@ export const AdminSidebar = ({ onOpenAddModal }) => {
 
         <Link
           to="/"
-          className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-colors"
+          className="flex items-center justify-center gap-2 w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Exit to Student Site</span>
