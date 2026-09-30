@@ -12,14 +12,14 @@ export const SearchBar = ({ searchQuery, setSearchQuery, placeholder = 'Search e
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-11 pr-10 py-3.5 bg-slate-900/90 border border-slate-800 focus:border-indigo-500 rounded-2xl text-slate-100 placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition-all shadow-inner"
+        className="w-full pl-11 pr-10 py-3.5 bg-white border border-slate-300 focus:border-blue-600 rounded-2xl text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-all shadow-xs"
       />
       {searchQuery && (
         <button
           onClick={() => setSearchQuery('')}
-          className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-white"
+          className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-700"
         >
-          <X className="w-4 h-4 bg-slate-800 hover:bg-slate-700 rounded-full p-0.5" />
+          <X className="w-4 h-4 bg-slate-100 hover:bg-slate-200 rounded-full p-0.5" />
         </button>
       )}
     </div>

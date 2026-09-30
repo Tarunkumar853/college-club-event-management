@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { SearchBar } from '../components/SearchBar';
 import { CategoryFilter } from '../components/CategoryFilter';
 import { EventGrid } from '../components/EventGrid';
 import { useApp } from '../context/AppContext';
-import { Compass, Sparkles } from 'lucide-react';
+import { Compass } from 'lucide-react';
 
 export const Events = () => {
   const { events } = useApp();
@@ -15,7 +14,6 @@ export const Events = () => {
   const [activeCategory, setActiveCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Sync state if URL query param changes
   useEffect(() => {
     const catFromUrl = searchParams.get('category');
     if (catFromUrl) {
@@ -33,7 +31,6 @@ export const Events = () => {
     setSearchParams(searchParams);
   };
 
-  // Filter logic
   const filteredEvents = events.filter((evt) => {
     const matchesCategory =
       activeCategory === 'All' || evt.category.toLowerCase() === activeCategory.toLowerCase();
@@ -58,21 +55,21 @@ export const Events = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 pb-20">
       {/* Page Header */}
-      <div className="space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/30 text-xs font-semibold">
+      <div className="space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-200 text-xs font-bold">
           <Compass className="w-3.5 h-3.5" />
           <span>Campus Directory</span>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
           Explore Events
         </h1>
-        <p className="text-slate-400 text-sm sm:text-base max-w-2xl leading-relaxed">
+        <p className="text-slate-600 text-xs sm:text-sm max-w-2xl leading-relaxed">
           Filter and search through upcoming college events, workshops, hackathons, and sports matches. Register in seconds.
         </p>
       </div>
 
       {/* Controls: Search & Category Filter */}
-      <div className="space-y-4 p-6 rounded-3xl bg-slate-900/60 border border-slate-800 backdrop-blur-md">
+      <div className="space-y-4 p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
         <div className="max-w-2xl">
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         </div>
@@ -80,7 +77,7 @@ export const Events = () => {
         <div className="pt-2 flex items-center justify-between gap-4">
           <CategoryFilter activeCategory={activeCategory} setActiveCategory={handleCategoryChange} />
           
-          <span className="hidden sm:inline-block text-xs text-slate-400 font-semibold shrink-0">
+          <span className="hidden sm:inline-block text-xs text-slate-500 font-semibold shrink-0">
             Showing {filteredEvents.length} of {events.length} events
           </span>
         </div>
